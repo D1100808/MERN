@@ -4,6 +4,7 @@ import './Map.css'
 
 function Map(props) {
     const mapRef = useRef();
+    console.log(mapRef);
 
     const { center, zoom } = props;
     
@@ -12,7 +13,7 @@ function Map(props) {
           center,
           zoom
         });
-
+        console.log(map);
         new window.google.maps.Marker({
           position: center,
           map: map
