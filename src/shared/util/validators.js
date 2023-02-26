@@ -22,12 +22,9 @@ export const VALIDATOR_EMAIL = () => ({ type: VALIDATOR_TYPE_EMAIL });
 
 export const validate = (value, validators) => {
   let isValid = true;
-  console.log('value', value);
-  console.log("validators", validators);
   for (const validator of validators) {
     if (validator.type === VALIDATOR_TYPE_REQUIRE) {
       isValid = isValid && value.trim().length > 0;
-      console.log("isValid", isValid);
     }
     if (validator.type === VALIDATOR_TYPE_MINLENGTH) {
       isValid = isValid && value.trim().length >= validator.val;
@@ -45,6 +42,5 @@ export const validate = (value, validators) => {
       isValid = isValid && /^\S+@\S+\.\S+$/.test(value);
     }
   }
-  console.log("isValid", isValid);
   return isValid;
 };
